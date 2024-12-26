@@ -36,16 +36,15 @@
     "url": "https://github.com/smapiot/piral-cli-vite6/issues"
   },
   "scripts": {
-    "build": "tsc",
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "build": "tsc"
   },
   "devDependencies": {
-    "piral-cli": "^1"
+    "piral-cli": "1.7.3"
   },
   "dependencies": {
     "sass": "^1",
     "vite": "^6",
-    "vite-plugin-codegen": "^1",
+    "vite-plugin-codegen": "^2",
     "vite-plugin-environment": "^1",
     "vite-plugin-pilet": "^1"
   }
