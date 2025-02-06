@@ -1,6 +1,6 @@
 # Changelog
 
-## 1.1.1 (tbd)
+## 1.1.1 (February 6, 2025)
 
 - Fixed issue with a pilet's stylesheet not following the anticipated name
 
