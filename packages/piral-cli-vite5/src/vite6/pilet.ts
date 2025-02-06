@@ -65,6 +65,7 @@ const handler: PiletBuildHandler = {
         lib: {
           entry: options.entryModule,
           fileName: () => options.outFile,
+          cssFileName: 'style',
           formats: ['system' as any],
         },
         rollupOptions: {
