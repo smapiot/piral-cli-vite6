@@ -1,6 +1,6 @@
 # Changelog
 
-## 1.1.2 (tbd)
+## 1.1.2 (May 2, 2025)
 
 - Improved transformation of *index.html*
 
