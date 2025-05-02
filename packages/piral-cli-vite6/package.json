@@ -42,6 +42,7 @@
     "piral-cli": "1.7.3"
   },
   "dependencies": {
+    "cheerio": "^1",
     "sass": "^1",
     "vite": "^6",
     "vite-plugin-codegen": "^2",

@@ -1,15 +1,59 @@
 import type { PiralBuildHandler } from 'piral-cli';
 import type { Plugin } from 'vite';
+import { load } from 'cheerio';
 import { dirname, resolve } from 'path';
-import { createCommonConfig } from './common';
-import { runVite } from './bundler-run';
 import { readFileSync, readdirSync, writeFileSync } from 'fs';
 
+import { createCommonConfig } from './common';
+import { runVite } from './bundler-run';
+
+function isLocal(path: string) {
+  if (path) {
+    if (path.startsWith(':')) {
+      return false;
+    } else if (path.startsWith('http:')) {
+      return false;
+    } else if (path.startsWith('https:')) {
+      return false;
+    } else if (path.startsWith('data:')) {
+      return false;
+    }
+
+    return true;
+  }
+
+  return false;
+}
+
 function transformIndexHtml(html: string) {
-  return html
-    .replace(/<script\s+src\s*=\s*"\.\/(.*?)"\s*>/gm, '<script src="./$1" type=module>')
-    .replace(/<script\s+src\s*=\s*'\.\/(.*?)'\s*>/gm, "<script src='./$1' type=module>")
-    .replace(/<script\s*>/gm, '<script type=module>');
+  const rx = /<script\s+.*<\/script>/gm;
+  const replacements: Array<[string, string]> = [];
+
+  while (true) {
+    const match = rx.exec(html);
+
+    if (!match) {
+      break;
+    }
+
+    const text = match[0];
+    const templateContent = load(text, null, false);
+
+    templateContent('script[src]')
+      .filter((_, e) => isLocal(e.attribs.src))
+      .each((_, e) => {
+        if (!e.attribs.type) {
+          e.attribs.type = 'module';
+          replacements.push([text, templateContent.html()]);
+        }
+      });
+  }
+
+  for (const [original, replacement] of replacements) {
+    html = html.replace(original, replacement);
+  }
+
+  return html;
 }
 
 function getConfigFile(root: string) {

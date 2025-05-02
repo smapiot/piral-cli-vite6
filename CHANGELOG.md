@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.1.2 (tbd)
+
+- Improved transformation of *index.html*
+
 ## 1.1.1 (February 6, 2025)
 
 - Fixed issue with a pilet's stylesheet not following the anticipated name
