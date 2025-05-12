@@ -1,6 +1,6 @@
 # Changelog
 
-## 1.1.3 (tbd)
+## 1.1.3 (May 12, 2025)
 
 - Fixed issue in watch mode of Vite 6
 
