@@ -26,6 +26,7 @@ export function createCommonConfig(
       emptyOutDir: false,
       minify,
       rollupOptions: {
+        maxParallelFileOps: 100, // bug in watch mode; see https://github.com/vitejs/vite/issues/19410
         output: {
           assetFileNames: '[name].[hash][extname]',
           chunkFileNames: '[name].[hash].js',

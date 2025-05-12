@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.1.3 (tbd)
+
+- Fixed issue in watch mode of Vite 6
+
 ## 1.1.2 (May 2, 2025)
 
 - Improved transformation of *index.html*
