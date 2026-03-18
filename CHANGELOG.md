@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.2.0 (tbd)
+
+- Added provenance at publish
+
 ## 1.1.3 (May 12, 2025)
 
 - Fixed issue in watch mode of Vite 6
