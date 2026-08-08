@@ -39,7 +39,7 @@
     "build": "tsc"
   },
   "devDependencies": {
-    "piral-cli": "1.7.3"
+    "piral-cli": "1.12.2"
   },
   "dependencies": {
     "cheerio": "^1",
